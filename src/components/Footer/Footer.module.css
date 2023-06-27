@@ -1,0 +1,55 @@
+.footer {
+    background-color: black;
+    color: white;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "WubbaLubbaDubDub";
+}
+
+.activeLink{
+    color: white;
+}
+
+.redesSociales{
+    font-size: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.icono{
+    color: #00b0c8 ;
+    margin-left: 10px;
+}
+
+.icono:hover{
+    color: #7bf0ff;
+}
+
+.rick{
+    color: #8ffe77;
+    font-size: 20px;
+}
+
+.morty{
+    color:#00b0c8;
+    font-size: 20px;
+}
+
+.rickandmorty{
+    padding-left: 60px;
+    font-family: "getSchwifty";
+}
+
+p{
+    font-size: 15px;
+}
+
+.link{
+    cursor: pointer;
+}

@@ -1,0 +1,12 @@
+.App {
+   text-align: center;
+   /* font-family: 'getSchwifty', sans-serif; */
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+input{
+   cursor: text;
+}

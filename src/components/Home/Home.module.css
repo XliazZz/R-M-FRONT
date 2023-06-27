@@ -1,0 +1,182 @@
+.contenedorHome{
+    background-image: linear-gradient(to top, hsl(310, 60%, 10%), hsl(180, 40%, 5%), hsl(210, 60%, 10%));
+    padding-top: 1px;
+    /* padding-bottom: 55px; */
+}
+
+.tituloHome{
+    color: white;
+    animation: titulo 1s ease 0.3s 1 normal forwards;
+    opacity: 0;
+    transition: opacity 2s ease 5s;
+    font-size:  2.525em;
+}
+
+.tituloHome:hover{
+    opacity: 1;
+}
+
+.rickymorty{
+    width: 20em;
+    margin: 20px;
+    height: 15em;
+    animation: rickymorty 3s ease 1.5s 1 normal forwards;
+    opacity: 0;
+    transition: opacity 4s ease 3s;
+    margin-right: 50%;
+    margin-top: 15%;
+}
+
+.rickymorty:hover{
+    opacity: 1;
+}
+
+@keyframes rickymorty {
+	0% {
+		opacity: 0;
+		transform: translateX(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.contenedorDescription{
+    width: 20em;
+    right: 80px;
+    position: relative;
+    left: 50%;
+    top: -250px;
+    font-size: 1.5em;
+    font-family: "WubbaLubbaDubDub";
+    color: white;
+    background-color:  hsl(210, 60%, 5%);
+    animation: description 2s ease 1s 1 normal forwards;
+    opacity: 0;
+    transition: opacity 3s ease 5s;
+}
+
+.contenedorDescription:hover{
+    opacity: 1;
+}
+
+@keyframes description {
+	0% {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes titulo {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.rickHome{
+    color: #00ff00;
+    font-size: 38px;
+    text-shadow: 0 0 15px #00b0c8, 0 0 10px #00b0c8;
+    margin-left: 5px;
+}
+
+.mortyHome{
+    font-size: 38px;
+    text-shadow: 0 0 15px #00ff00, 0 0 10px #00ff00;
+    margin-left: 5px;
+}
+
+.randomCharacters{
+    height: 100px;
+    margin: 0px;
+    background-color:  hsl(210, 60%, 5%);
+    font-size: 57px;
+    color: white;
+    padding-top: 2%;
+}
+
+.rickPepinillo{
+    width: 145px;
+    height: 190px;
+    position: relative;
+    top: -120px;
+    right: 550px;
+    padding-top: 15px;
+}
+
+.contenedoRandom{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 50px;
+    margin-left: 6%;
+    position: relative;
+    top: -135px;
+}
+
+.registerorsign{
+    color: white;
+    font-size: 35px;
+    background-color: hsl(210, 60%, 5%);
+    padding: 50px;
+    margin-top: 5%;
+}
+
+.cartas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.portal{
+    width: 50%;
+    animation: giro 20000ms ease 0s infinite normal forwards;
+    cursor: pointer;
+    border-radius: 99rem;
+
+}
+
+.opcion{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.contenedorOpcion{
+    margin: 50px;
+    background-color: #30122f;
+    border-radius: 10px;
+    padding-bottom: 25px;
+}
+
+@keyframes giro {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.contenedorOpcion:hover{
+    box-shadow: 1px 12px 24px 11px  #1a0a1a;
+}
+
+.morty{
+    color: #00b0c8;
+}

@@ -1,0 +1,216 @@
+/* Div principal */
+.div1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("../Asserts/fondo-body.jpg");
+}
+
+/* Div form */
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  height: 88vh;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
+  display: grid;
+    
+  background-image: url("../Asserts/fondoForm.jpg");
+  background-position: center 60%;
+  transition: all 500ms ease-in-out;
+  box-shadow: 3px 15px 10px 5px #8ffe77;
+  animation: lights 4000ms infinite ease-in;
+}
+
+/* Grupo de label, input y error */
+.formGroup {
+  color: aliceblue;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Label */
+.labelForm {
+  color: #00ff00;
+  font-family: 'getSchwifty', sans-serif;
+  font-size: 23px;
+  text-shadow: 0 0 15px #00b0c8, 0 0 10px #00b0c8;
+}
+
+/* Input */
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.inputForm{
+    background:white;
+    outline: none;
+    color: #00b0c8;
+    border-radius: 16px;
+    font-family: 'WubbaLubbaDubDub';
+    animation: lights 3000ms infinite ease-out;
+    width: 250px;
+    font-size: 20px;  
+    box-sizing: border-box;
+}
+
+.inputForm:focus {
+    border: 3px solid #C0E66E;
+    transition: all 100ms ease-out;
+    animation: none;
+    box-sizing: border-box;
+}
+
+/* Error p */
+.errorForm {
+  color: red;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.errorContainer {
+  height: 20px; /* Establece la altura fija deseada para los mensajes de error */
+}
+
+.errorVisible {
+  visibility: visible; /* Mostrar el contenedor de error */
+}
+
+.errorHidden {
+  visibility: hidden; /* Ocultar el contenedor de error */
+}
+
+.botonForm{
+    background-color: #009500;
+    border: 5px solid #8ffe77;
+    color: white;
+    transition: all 100ms ease-in-out;
+    animation: lights 4000ms infinite ease-in;
+    border-radius: 15px;
+    font-family: 'WubbaLubbaDubDub';
+    width: 120px;
+    height: 30px;
+}
+
+.botonForm:hover{
+  border: 2px solid #8ffe77;
+  box-shadow: 0px 0px 10px 2px;
+  animation: none;
+  background-color: #00b0c8;
+}
+
+.botonForm:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+} 
+
+.div2{
+  text-align: center;
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+.div3{
+  text-align: center;
+  align-items: center;
+  margin-left: 25%;
+}
+
+.h4Register{
+  color: white;
+  font-weight: 900;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  padding-top: 25px;
+}
+
+.linkSign{
+  color: #8ffe77;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.linkSign:hover{
+  color: #00ff00;
+}
+
+.botonForm:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+} 
+
+.backForm{
+    position: absolute;
+    color: white;
+    top: 30px;
+    left: 30px;
+    width: 55px;
+    padding-top: 5px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: black;
+    background: #00ff00;
+    border-radius: 10px;
+    margin: 0 auto;
+    font-family: "WubbaLubbaDubDub";
+    font-size: 23px;
+}
+
+.backForm:hover{
+    background-color: green;
+}
+
+
+@keyframes lights {
+  0% {
+  box-shadow: 0px 0px 10px 2px #00d8f5;
+  border: 1px solid #00ff00;
+  }
+  50% {
+  box-shadow: 0px 0px 10px 2px #007282;
+  border: 1px solid #21b601;
+  }
+  70% {
+  box-shadow: 0px 0px 10px 2px #007282;
+  border: 1px solid #007282;
+  }
+  100% {
+  box-shadow: 0px 0px 10px 2px #00d8f5;
+  border: 1px solid #00ff00;
+  }
+}
+
+@font-face {
+  font-family: 'getSchwifty';
+  src:
+      url('getSchwifty.ttf') format('truetype'),
+      url('getschwifty-webfont.woff2') format('woff2'),
+      url('getschwifty-webfont.woff') format('woff');
+  font-weight: medium;
+  font-style: medium;
+}
+
+@font-face {
+  font-family: 'WubbaLubbaDubDub';
+  src:
+      url('WubbaLubbaDubDub.ttf') format('truetype'),
+      url('WubbaLubbaDubDub.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

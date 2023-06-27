@@ -1,0 +1,326 @@
+/* Div principal */
+.div1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../Asserts/FONDOESTRELLAS.jpg");
+}
+
+/* Div form */
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 88vh;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
+  display: grid;
+  background-color: rgb(1, 15, 24);
+  transition: all 500ms ease-in-out;
+  box-shadow: 3px 15px 10px 5px rgba(2,92,104,1);
+  animation: lights 4000ms infinite ease-in;
+}
+
+/* Grupo de label, input y error */
+.formGroup {
+  color: aliceblue;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 70px;
+}
+
+/* Label */
+.labelForm {
+  color: white;
+  font-size: 25px;
+  text-shadow: 0 0 15px #00ff00, 0 0 10px #00ff00;
+  font-family: 'WubbaLubbaDubDub';
+}
+
+/* Input */
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.inputForm {
+  background: white;
+  outline: none;
+  color: #00b0c8;
+  border-radius: 16px;
+  font-family: 'WubbaLubbaDubDub';
+  animation: lights 3000ms infinite ease-out;
+  width: 300px;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+.inputForm:focus {
+  border: 2px solid #C0E66E;
+  transition: all 100ms ease-out;
+  animation: none;
+  box-sizing: border-box;
+}
+
+/* Error p */
+.errorForm {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.errorContainer {
+  height: 20px; /* Establece la altura fija deseada para los mensajes de error */
+}
+
+.errorVisible {
+  visibility: visible; /* Mostrar el contenedor de error */
+}
+
+.errorHidden {
+  visibility: hidden; /* Ocultar el contenedor de error */
+}
+
+.genero {
+  color: white;
+  font-family: "WubbaLubbaDubDub";
+  font-size: 20px;
+  position: relative;
+  bottom: -5px;
+}
+
+.genero label {
+  margin-right: 0px; 
+  margin-left: 50px;
+}
+
+.male {
+  cursor: pointer;
+}
+
+.female {
+  padding: 2px;
+  cursor: pointer;
+}
+
+.other {
+  padding: 2px;
+  cursor: pointer;
+}
+
+.terms{
+  color: white;
+  font-size: 13px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.botonForm{
+  background-color: #007282;
+  border: 5px solid #00b0c8;
+  color: white;
+  transition: all 100ms ease-in-out;
+  animation: lights 4000ms infinite ease-in;
+  border-radius: 15px;
+  font-family: 'WubbaLubbaDubDub';
+  width: 120px;
+  height: 30px;
+}
+
+.botonForm:hover{
+  border: 2px solid #8ffe77;
+  box-shadow: 0px 0px 10px 2px;
+  animation: none;
+  background-color: #00b0c8;
+}
+
+.botonForm:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+} 
+
+.fotoPNG{
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  right: 950px;
+  top: 200px;
+  transform: rotate(34deg);
+  -webkit-transform: rotate(34deg);
+  -moz-transform: rotate(34deg);
+}
+
+
+.successContainerAlert{
+  position: absolute;
+  border-radius: 15px;
+  width: 230px;
+  height: 150px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 1%;
+  bottom: 10%;
+  background: linear-gradient(to top, #dfe9f3cd 0%, rgba(255, 255, 255, 0.855) 100%);
+  animation: entrada 2s ease 0s 1 normal forwards;
+}
+
+.alertSuccess{
+  color: green;
+  font-size: 40px;
+  margin: 0;
+}
+
+.success{
+  color: green;
+  font-family: "WubbaLubbaDubDub";
+  font-size: 23px;
+  margin: 0;
+}
+
+:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.div2{
+  text-align: center;
+  align-items: center;
+}
+
+.div3{
+  text-align: center;
+  align-items: center;
+  margin-left: 32%;
+}
+
+.errorContainerAlert {
+  position: absolute;
+  border-radius: 15px;
+  width: 230px;
+  height: 150px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 1%;
+  bottom: 10%;
+  background: linear-gradient(to top, #dfe9f3cd 0%, rgba(255, 255, 255, 0.855) 100%);
+  animation: entrada 2s ease 0s 1 normal forwards;
+}
+
+.error1 {
+  color: red;
+  font-size: 1px;
+  margin-top: 10px;
+  font-family: "WubbaLubbaDubDub";
+  margin: 0;
+}
+
+.alert {
+  color: red;
+  font-size: 40px;
+  margin: 0;
+}
+
+.h4Register{
+  color: white;
+  font-weight: 900;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+}
+
+.linkSign{
+  color: #8ffe77;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.linkSign:hover{
+  color: #00ff00;
+}
+
+@keyframes lights {
+  0% {
+  box-shadow: 0px 0px 10px 2px #00d8f5;
+  border: 1px solid #00d8f5;
+  }
+  50% {
+  box-shadow: 0px 0px 10px 2px #007282;
+  border: 1px solid #007282;
+  }
+  70% {
+  box-shadow: 0px 0px 10px 2px #007282;
+  border: 1px solid #00ff00;
+  }
+  100% {
+  box-shadow: 0px 0px 10px 2px #00d8f5;
+  border: 1px solid #00d8f5;
+  }
+}
+
+.backForm{
+  position: absolute;
+  color: white;
+  top: 30px;
+  left: 30px;
+  width: 55px;
+  padding-top: 5px;
+  height: 35px;
+  border: none;
+  outline: none;
+  color: black;
+  background: #00ff00;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-family: "WubbaLubbaDubDub";
+  font-size: 23px;
+}
+
+.backForm:hover{
+  background-color: green;
+}
+
+
+@keyframes entrada {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateX(-10px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateX(10px);
+	}
+
+	80% {
+		transform: translateX(8px);
+	}
+
+	90% {
+		transform: translateX(-8px);
+	}
+}
