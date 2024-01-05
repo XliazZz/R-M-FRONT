@@ -2,7 +2,7 @@ import * as types from "../Action-types/actions-types";
 import axios from 'axios';
 
 const token = localStorage.getItem('token');
-const URL = 'http://localhost:3001';
+const URL = 'https://rickandmortyback.adaptable.app/';
 
 
 export const postFavoriteCharacterRequest = () => ({
@@ -128,7 +128,7 @@ export const searchCharacter = (name) => async (dispatch, getState) => {
 
   try {
     dispatch(searchCharacterRequest()); 
-    const response = await axios.get(`http://localhost:3001/character?name=${name}`);
+    const response = await axios.get(`https://rickandmortyback.adaptable.app/character?name=${name}`);
     const data = response.data;
     dispatch(searchCharacterSuccess(data)); 
   } catch (error) {

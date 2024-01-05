@@ -30,7 +30,7 @@ const Footer = () => {
                         <FaGithub className={style.icono} />
                     </a>
 
-                    <a href="https://www.instagram.com/eliasx._" target="_blank" rel="noreferrer">
+                    <a href="https://www.instagram.com/xliazzzx" target="_blank" rel="noreferrer">
                         <FaInstagram className={style.icono} />
                     </a>
                     <a href="https://www.linkedin.com/in/elias-martinez-040980246/" target="_blank" rel="noreferrer">

@@ -50,7 +50,7 @@ const Register = () => {
       const password = userData.password;
   
       if (userData.email) {
-        const URL = 'http://localhost:3001/api/signin';
+        const URL = 'https://rickandmortyback.adaptable.app/api/signin';
         let endpoint = URL + `?email=${email}&password=${password}`;
   
         // Realizar la solicitud GET

@@ -3,7 +3,6 @@ import PortalInicio from "../Asserts/PortalInicio.png";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import RandomCard from "../RandomCard/RandomCard";
-import rickPepinillo from "../Asserts/rickPepinillo.png"
 import { getRandomCharacters, clearRandomCharacters } from "../../redux/Actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -30,6 +29,15 @@ const Home = () => {
         <h3>A wildly hilarious animated series that follows the outlandish adventures of a brilliant but troubled scientist and his easily influenced grandson across different dimensions and planets.
         </h3>
       </div>
+
+      <NavLink to={'/characters'} className={style.contenedorboton}>   
+        <button
+          className={style.botonPage}
+          onClick={{}}
+        >
+        Explore
+        </button>
+      </NavLink>
 
       {characters && characters.length > 0 && !loadingGetRandomCharacters &&      
         !errorGetRandomCharacters &&

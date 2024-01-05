@@ -7,7 +7,7 @@ import style from "./Favorite.module.css"
 
 const Favorites = () => {
   const token = localStorage.getItem('token');
-  const URL = 'http://localhost:3001';
+  const URL = 'https://rickandmortyback.adaptable.app/';
 
   const [aux, setAux] = useState(false);
   const [favs, setFavs] = useState([])

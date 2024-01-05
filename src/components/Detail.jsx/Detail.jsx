@@ -12,7 +12,7 @@ const Detail = () => {
     useEffect(() => {
         const inEffect = async () => {
             try {
-                const { data } = await axios(`http://localhost:3001/character/${id}`)
+                const { data } = await axios(`https://rickandmortyback.adaptable.app/character/${id}`)
                 if (data.name) {
                     setCharacter(data)
                 } else {

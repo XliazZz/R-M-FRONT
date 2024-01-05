@@ -32,7 +32,7 @@ const LoginGoogle = () => {
       const { email} = payload;
       
       try {
-        const URL = 'http://localhost:3001/api/signingoogle';
+        const URL = 'https://rickandmortyback.adaptable.app/api/signingoogle';
         let endpoint = URL;
         if (email) {
           endpoint += `?email=${email}`;

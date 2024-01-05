@@ -172,3 +172,35 @@
 .morty{
 	color: #00b0c8;
 }
+
+.contenedorboton {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  position: relative;
+  bottom: 170px;
+  padding-left: 15px;
+}
+
+.botonPage{
+  display: grid;
+  place-items: center;
+  color: black;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  transition: all 0.2s ease-in-out;
+  margin-top: 20px;
+  height: 45px;
+  width: 150px;
+  position: relative;
+  right: 0px;
+  background-color: #8ffe77;
+  color: black;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(142, 198, 63, 0.5);
+  transition: transform 0.2s ease-in-out;
+  font-family: "WubbaLubbaDubDub";
+}

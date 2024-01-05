@@ -44,7 +44,7 @@ const Form = () => {
   
   const login = async (userData) => {
     const { email, password, userName } = userData;
-    const URL = 'http://localhost:3001/api/signin';
+    const URL = 'https://rickandmortyback.adaptable.app/api/signin';
   
     try {
       let endpoint = URL;

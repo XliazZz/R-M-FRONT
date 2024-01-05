@@ -49,7 +49,7 @@ const Characters = () => {
   useEffect(() => {
     const fetchSpecies = async () => {
       try {
-        const response = await fetch('http://localhost:3001/species');
+        const response = await fetch('https://rickandmortyback.adaptable.app/species');
         const data = await response.json();
         setSpecies(data);
       } catch (error) {
@@ -70,7 +70,7 @@ const Characters = () => {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const response = await fetch('http://localhost:3001/status');
+        const response = await fetch('https://rickandmortyback.adaptable.app/status');
         const data = await response.json();
         setStatus(data);
       } catch (error) {
@@ -91,7 +91,7 @@ const Characters = () => {
   useEffect(() => {
     const fetchGender = async () => {
       try {
-        const response = await fetch('http://localhost:3001/gender');
+        const response = await fetch('https://rickandmortyback.adaptable.app/gender');
         const data = await response.json();
         setGender(data);
       } catch (error) {

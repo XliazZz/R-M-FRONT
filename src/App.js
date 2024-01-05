@@ -12,7 +12,6 @@ import Nav from './components/Nav/Nav';
 import Register from './components/Register/Register';
 import About from "./components/About/About";
 import Footer from './components/Footer/Footer';
-import axios from 'axios';
 import Home from './components/Home/Home';
 import EpisodeList from './components/Episodes/Episodes';
 import EpisodeDetail from './components/EpisodeDetail/EpisodeDetail';
@@ -37,10 +36,10 @@ function App() {
   const access = localStorage.getItem('token') !== null;
 
   useEffect(() => {
-    if (!access && (pathname !== '/' && pathname !== '/register' && pathname !== '/login')) {
+    if (!access && (pathname !== '/' && pathname !== '/register' && pathname !== '/login' && pathname !== '/about' && pathname !== '/contact' && pathname !== '/episodes' && pathname !== '/episode/detail/:id' && pathname !== '/characters' && pathname !== '/detail/:id'  && pathname !== '/cards' )) {
       navigate('/login');
     }
-  }, [navigate, pathname])
+  }, [navigate, pathname, access])
 
   return (
     <div className="App">
