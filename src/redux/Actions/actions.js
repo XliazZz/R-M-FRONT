@@ -1,28 +1,27 @@
 import * as types from "../Action-types/actions-types";
 import axios from 'axios';
+
 const token = localStorage.getItem('token');
-const URL = 'https://r-m-back-production.up.railway.app';
+const URL = 'http://localhost:3001';
+
 
 export const postFavoriteCharacterRequest = () => ({
     type: types.POST_FAVORITE_REQUEST,
 });
-
 export const postFavoriteCharacterSuccess = (character) => ({
     type: types.POST_FAVORITE_SUCCESS,
     payload: character,
 });
-
 export const postFavoriteCharacterError = (error) => ({
     type: types.POST_FAVORITE_ERROR,
     payload: error,
 });
-
 export const postFavorite = (character) => {
   return async (dispatch) => {
     dispatch(postFavoriteCharacterRequest());
     const endpoint = `${URL}/fav`;
     try {
-      const { data } = await axios.post(endpoint, { character, token }); // Enviar token en el cuerpo de la solicitud
+      const { data } = await axios.post(endpoint, { character, token }); 
       dispatch(postFavoriteCharacterSuccess(data));
     } catch (error) {
       const errorMessage = error.response?.data?.error || error.message;
@@ -31,20 +30,30 @@ export const postFavorite = (character) => {
   };
 };
 
+export const removeFavRequest = () => ({
+  type: types.REMOVE_FAV_REQUEST,
+});
+export const removeFavSuccess = (id) => ({
+  type: types.REMOVE_FAV_SUCCESS,
+  payload: id,
+});
+export const removeFavError = (error) => ({
+  type: types.REMOVE_FAV_ERROR,
+  payload: error,
+});
 export const removeFav = (id) => {
   return async (dispatch) => {
+    dispatch(removeFavRequest());
     const endpoint = `${URL}/fav/${id}`;
-    try{
-      const { data } = await axios.delete(endpoint);
-      dispatch({
-          type: types.REMOVE_FAV,
-          payload: data,
-      });
+    try {
+      const { data } = await axios.delete(endpoint, { data: { token } });
+      dispatch(removeFavSuccess(data));
     } catch (error) {
-        console.error(error);
+      const errorMessage = error.response?.data?.error || error.message;
+      dispatch(removeFavError(errorMessage));
     }
   };
-};
+}
 
 
 export const orderCards = (orden) => {
@@ -119,7 +128,7 @@ export const searchCharacter = (name) => async (dispatch, getState) => {
 
   try {
     dispatch(searchCharacterRequest()); 
-    const response = await axios.get(`https://r-m-back-production.up.railway.app/character?name=${name}`);
+    const response = await axios.get(`http://localhost:3001/character?name=${name}`);
     const data = response.data;
     dispatch(searchCharacterSuccess(data)); 
   } catch (error) {
@@ -185,55 +194,6 @@ export const resetRegister = () => {
   };
 };
 
-
-// export const loginGoogleRequest = () => {
-//   return {
-//     type: types.LOGIN_GOOGLE_REQUEST,
-//   };
-// };
-
-// export const loginGoogleSuccess = (data) => {
-//   return {
-//     type: types.LOGIN_GOOGLE_SUCCESS,
-//     payload: data,
-//   };
-// };
-
-// export const loginGoogleError = (error) => {
-//   return {
-//     type: types.LOGIN_GOOGLE_ERROR,
-//     payload: error,
-//   };
-// };
-
-// export const loginGoogle = (userdata) => {
-//   return async (dispatch) => {
-//     try {
-//       dispatch(loginGoogleRequest());
-
-//       const { email } = userdata;
-//       const URL = 'http://localhost:3001/api/signingoogle';
-//       const endpoint = URL;
-
-//       if (email) {
-//         endpoint += `?email=${email}`;
-//       }  else {
-//         dispatch(loginGoogleError('Email invalid.'));
-//         return;
-//       }
-
-//       const { data } = await axios.get(endpoint);
-//       const { token } = data;
-//       localStorage.setItem('token', token);
-//       dispatch(loginGoogleSuccess(data));
-
-//     } catch (error) {
-//       console.error(error);
-//       dispatch(loginGoogleError(error));
-//     }
-//   };
-// };
-
 // Episodes
 
 export const getEpisodesRequest = () => {
@@ -241,7 +201,7 @@ export const getEpisodesRequest = () => {
     type: types.GET_EPISODES_REQUEST,
   };
 };
-
+//aca estan los personajes del comp Characters
 export const getEpisodesSuccess = (episodes) => {
   return {
     type: types.GET_EPISODES_SUCCESS,
@@ -266,5 +226,85 @@ export const getEpisode = (episodes) => {
     } catch (error) {
       dispatch(getEpisodesError(error.response));
     }
+  };
+};
+
+//Get random characters
+export const getRandomCharactersRequest = () => {
+  return {
+    type: types.GET_RANDOM_CHARACTERS_REQUEST,
+  };
+};
+export const getRandomCharactersSuccess = (characters) => {
+  return {
+    type: types.GET_RANDOM_CHARACTERS_SUCCESS,
+    payload: characters,
+  };
+};
+export const getRandomCharactersError = (error) => {
+  return {
+    type: types.GET_RANDOM_CHARACTERS_ERROR,
+    payload: error,
+  };
+};
+export const getRandomCharacters = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(getRandomCharactersRequest());
+      const endpoint = `${URL}/random`;
+      const response = await axios.get(endpoint);
+      dispatch(getRandomCharactersSuccess(response.data));
+    } catch (error) {
+      dispatch(getRandomCharactersError(error.response));
+    }
+  };
+};
+
+export const clearRandomCharacters = () => {
+  return {
+    type: types.CLEAR_RANDOM_CHARACTERS,
+  };
+};
+
+
+//Get favorite
+export const getFavoriteRequest = () => {
+  return {
+    type: types.GET_FAVORITE_REQUEST,
+  };
+};
+export const getFavoriteSuccess = (characters) => {
+  return {
+    type: types.GET_FAVORITE_SUCCESS,
+    payload: characters,
+  };
+};
+export const getFavoriteError = (error) => {
+  return {
+    type: types.GET_FAVORITE_ERROR,
+    payload: error,
+  };
+};
+export const getFavorite = () => {
+  return async (dispatch) => {
+    const token = localStorage.getItem('token');
+    try {
+      dispatch(getFavoriteRequest());
+      const endpoint = `${URL}/fav`;
+      const response = await axios.get(endpoint, {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      });
+      dispatch(getFavoriteSuccess(response.data));
+    } catch (error) {
+      dispatch(getFavoriteError(error.response));
+    }
+  };
+};
+
+export const clearFavoriteStatus = () => {
+  return {
+    type: types.CLEAR_FAVORITE_STATUS,
   };
 };

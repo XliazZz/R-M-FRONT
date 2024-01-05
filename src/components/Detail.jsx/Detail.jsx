@@ -12,7 +12,7 @@ const Detail = () => {
     useEffect(() => {
         const inEffect = async () => {
             try {
-                const { data } = await axios(`https://r-m-back-production.up.railway.app/character/${id}`)
+                const { data } = await axios(`http://localhost:3001/character/${id}`)
                 if (data.name) {
                     setCharacter(data)
                 } else {

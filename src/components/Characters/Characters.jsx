@@ -4,16 +4,16 @@ import { getAllCharacters } from '../../redux/Actions/actions';
 import Card from '../Card/Card';
 import style from "./Characters.module.css"
 import { useParams } from 'react-router-dom';
-import portal from "../Asserts/PortalInicio.png"
 import ScrollTop from '../ScrollTop/ScrollTop';
 import CardLoading from '../CardLoading/CardLoading';
 
 const Characters = () => {
   const dispatch = useDispatch();
+  const { pageNumber } = useParams(); 
+
   const characters = useSelector((state) => state.characters)
   const isLoading = useSelector((state) => state.isLoading)
-  const error = useSelector((state) => state.error)
-  const { pageNumber } = useParams(); 
+
   const [currentPage, setCurrentPage] = useState(pageNumber ? pageNumber - 1 : 0);
   const [selectedSpecie, setSelectedSpecie] = useState('');
   const [selectedStatus, setSelectedStatus] = useState(''); 
@@ -21,17 +21,17 @@ const Characters = () => {
 
   let filteredCharacters = characters;
   if (selectedSpecie) {
-        filteredCharacters = characters.filter(character => character.species.includes(selectedSpecie));
+    filteredCharacters = characters.filter(character => character.species.includes(selectedSpecie));
   }
-    if (selectedStatus) {
-      filteredCharacters = filteredCharacters.filter(character => character.status.includes(selectedStatus))
+  if (selectedStatus) {
+    filteredCharacters = filteredCharacters.filter(character => character.status.includes(selectedStatus))
   }
   if (selectedGender) {
-      filteredCharacters = filteredCharacters.filter(character => character.gender.includes(selectedGender))
+    filteredCharacters = filteredCharacters.filter(character => character.gender.includes(selectedGender))
   }
 
   useEffect(() => {
-        dispatch(getAllCharacters());
+    dispatch(getAllCharacters());
   }, [dispatch]);
 
   const itemsPerPage = 20;
@@ -47,63 +47,65 @@ const Characters = () => {
   // Filter Species
   const [species, setSpecies] = useState([]);
   useEffect(() => {
-        const fetchSpecies = async () => {
-            try {
-                const response = await fetch('https://r-m-back-production.up.railway.app/species');
-                const data = await response.json();
-                setSpecies(data);
-            } catch (error) {
-                throw new Error(`${error.message}`);
-            }
-        };
+    const fetchSpecies = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/species');
+        const data = await response.json();
+        setSpecies(data);
+      } catch (error) {
+        throw new Error(`${error.message}`);
+      }
+    };
 
-        fetchSpecies();
+    fetchSpecies();
   }, []);
+
   const handleSpeciesChange = (event) => {
-        setSelectedSpecie(event.target.value);
-        setCurrentPage(0);
+    setSelectedSpecie(event.target.value);
+    setCurrentPage(0);
   }
 
-    // Filter Status
+  // Filter Status
   const [status, setStatus] = useState([]);
   useEffect(() => {
-        const fetchStatus = async () => {
-            try {
-                const response = await fetch('https://r-m-back-production.up.railway.app/status');
-                const data = await response.json();
-                setStatus(data);
-            } catch (error) {
-                throw new Error(`${error.message}`);
-            }
-        };
+    const fetchStatus = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/status');
+        const data = await response.json();
+        setStatus(data);
+      } catch (error) {
+        throw new Error(`${error.message}`);
+      }
+    };
 
-        fetchStatus();
+    fetchStatus();
   }, []);
+
   const handleStatusChange = (event) => {
-        setSelectedStatus(event.target.value);
-        setCurrentPage(0);
+    setSelectedStatus(event.target.value);
+    setCurrentPage(0);
   }
 
   // Filter Gender
   const [gender, setGender] = useState([]);
   useEffect(() => {
-        const fetchGender = async () => {
-            try {
-                const response = await fetch('https://r-m-back-production.up.railway.app/gender');
-                const data = await response.json();
-                setGender(data);
-            } catch (error) {
-                throw new Error(`${error.message}`);
-            }
-        };
-
-        fetchGender();
+    const fetchGender = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/gender');
+        const data = await response.json();
+        setGender(data);
+      } catch (error) {
+        throw new Error(`${error.message}`);
+      }
+    };
+    fetchGender();
   }, []);
+
   const handleGenderChange = (event) => {
-        setSelectedGender(event.target.value);
-        setCurrentPage(0);
+    setSelectedGender(event.target.value);
+    setCurrentPage(0);
   }
-    
+
   return (
     <div className={style.elCapo}>
 
@@ -139,6 +141,7 @@ const Characters = () => {
           </select>
         </div>
       </div>
+
       <div className={style.contenedorCharacters}>
         {currentItems?.map((character) => {
           if (isLoading) {
@@ -185,9 +188,10 @@ const Characters = () => {
         }
       </div>
 
-      <div  className={style.botonTop}>
-        <ScrollTop ></ScrollTop>
+      <div id="botonTop" className={style.botonTop}>
+        <ScrollTop id="botonTop" />
       </div>
+
     </div>
   )
 };

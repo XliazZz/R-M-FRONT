@@ -20,30 +20,31 @@ const Form = () => {
     if (success) {
       setTimeout(() => {
         navigate('/loading');
-      }, 1000); // Ajusta el tiempo de espera en milisegundos (en este caso, 2 segundos)
+      }, 1000);
     }
   }, [success, navigate]);
 
   const [errors, setErrors] = useState({})
   const [userData, setUserData] = useState({
-      email: '',
-      password: ''
+    email: '',
+    password: ''
   })
 
   const handleChange = (event) => {
-        setUserData({
-            ...userData,
-            [event.target.name]: event.target.value
-        })
-        setErrors(validation({
-            ...userData,
-            [event.target.name]: event.target.value
-        }))
+    setUserData({
+      ...userData,
+      [event.target.name]: event.target.value
+    })
+
+    setErrors(validation({
+      ...userData,
+      [event.target.name]: event.target.value
+    }))
   }
   
   const login = async (userData) => {
     const { email, password, userName } = userData;
-    const URL = 'https://r-m-back-production.up.railway.app/api/signin';
+    const URL = 'http://localhost:3001/api/signin';
   
     try {
       let endpoint = URL;
@@ -68,8 +69,8 @@ const Form = () => {
   };
 
   const handleSubmit = (event) => {
-        event.preventDefault()
-        login(userData);
+    event.preventDefault()
+    login(userData);
   }
     
   const clientId = "529370659061-m0muo9lem1imsorkb8jbq7qkkb5c1kuo.apps.googleusercontent.com";
@@ -141,12 +142,12 @@ const Form = () => {
               Log In
             </button>
 
-            <h4 className={style.h4Register}>Do you not hava a account? <NavLink className={style.linkSign} to={"/login"}>Sign Up</NavLink> </h4>
+            <h4 className={style.h4Register}>Do you not hava a account? <NavLink className={style.linkSign} to={"/register"}>Sign Up</NavLink> </h4>
           </div>
                     
-        <div className={style.div3}>
-          <LoginGoogle />
-        </div>
+          <div className={style.div3}>
+            <LoginGoogle />
+          </div>
 
         </form>
         {errores && success === false && (
@@ -163,6 +164,6 @@ const Form = () => {
       </div>
     </GoogleOAuthProvider>
   )
-}
+};
 
-export default Form
+export default Form;

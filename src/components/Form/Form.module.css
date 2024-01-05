@@ -1,13 +1,13 @@
 /* Div principal */
 .div1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    background-image: url("../Asserts/fondo-body.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../Asserts/fondo-body.jpg");
 }
 
 /* Div form */
@@ -16,15 +16,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 35%;
-  height: 88vh;
+  width: 30%;
+  height: 60vh;
   border-radius: 15px;
   padding: 10px;
   margin: 5px;
   display: grid;
-    
-  background-image: url("../Asserts/fondoForm.jpg");
-  background-position: center 60%;
+  
+  background-color: #07110d;
   transition: all 500ms ease-in-out;
   box-shadow: 3px 15px 10px 5px #8ffe77;
   animation: lights 4000ms infinite ease-in;
@@ -36,7 +35,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
-  gap: 30px;
+  
 }
 
 /* Label */
@@ -56,22 +55,22 @@
 }
 
 .inputForm{
-    background:white;
-    outline: none;
-    color: #00b0c8;
-    border-radius: 16px;
-    font-family: 'WubbaLubbaDubDub';
-    animation: lights 3000ms infinite ease-out;
-    width: 250px;
-    font-size: 20px;  
-    box-sizing: border-box;
+  background:white;
+  outline: none;
+  color: #00b0c8;
+  border-radius: 16px;
+  font-family: 'WubbaLubbaDubDub';
+  animation: lights 3000ms infinite ease-out;
+  width: 250px;
+  font-size: 20px;  
+  box-sizing: border-box;
 }
 
 .inputForm:focus {
-    border: 3px solid #C0E66E;
-    transition: all 100ms ease-out;
-    animation: none;
-    box-sizing: border-box;
+  border: 3px solid #C0E66E;
+  transition: all 100ms ease-out;
+  animation: none;
+  box-sizing: border-box;
 }
 
 /* Error p */
@@ -94,15 +93,15 @@
 }
 
 .botonForm{
-    background-color: #009500;
-    border: 5px solid #8ffe77;
-    color: white;
-    transition: all 100ms ease-in-out;
-    animation: lights 4000ms infinite ease-in;
-    border-radius: 15px;
-    font-family: 'WubbaLubbaDubDub';
-    width: 120px;
-    height: 30px;
+  background-color: #009500;
+  border: 5px solid #8ffe77;
+  color: white;
+  transition: all 100ms ease-in-out;
+  animation: lights 4000ms infinite ease-in;
+  border-radius: 15px;
+  font-family: 'WubbaLubbaDubDub';
+  width: 120px;
+  height: 30px;
 }
 
 .botonForm:hover{
@@ -120,7 +119,7 @@
 .div2{
   text-align: center;
   align-items: center;
-  padding-bottom: 100px;
+  margin-bottom: 10px;
 }
 
 .div3{
@@ -132,10 +131,10 @@
 .h4Register{
   color: white;
   font-weight: 900;
-  font-size: 13px;
+  font-size: 17px;
   margin: 0;
   padding: 0;
-  padding-top: 25px;
+  padding-top: 45px;
 }
 
 .linkSign{
@@ -149,30 +148,30 @@
 }
 
 .botonForm:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 } 
 
 .backForm{
-    position: absolute;
-    color: white;
-    top: 30px;
-    left: 30px;
-    width: 55px;
-    padding-top: 5px;
-    height: 35px;
-    border: none;
-    outline: none;
-    color: black;
-    background: #00ff00;
-    border-radius: 10px;
-    margin: 0 auto;
-    font-family: "WubbaLubbaDubDub";
-    font-size: 23px;
+  position: absolute;
+  color: white;
+  top: 30px;
+  left: 30px;
+  width: 55px;
+  padding-top: 5px;
+  height: 35px;
+  border: none;
+  outline: none;
+  color: black;
+  background: #00ff00;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-family: "WubbaLubbaDubDub";
+  font-size: 23px;
 }
 
 .backForm:hover{
-    background-color: green;
+  background-color: green;
 }
 
 
@@ -198,9 +197,9 @@
 @font-face {
   font-family: 'getSchwifty';
   src:
-      url('getSchwifty.ttf') format('truetype'),
-      url('getschwifty-webfont.woff2') format('woff2'),
-      url('getschwifty-webfont.woff') format('woff');
+    url('getSchwifty.ttf') format('truetype'),
+    url('getschwifty-webfont.woff2') format('woff2'),
+    url('getschwifty-webfont.woff') format('woff');
   font-weight: medium;
   font-style: medium;
 }
@@ -208,8 +207,8 @@
 @font-face {
   font-family: 'WubbaLubbaDubDub';
   src:
-      url('WubbaLubbaDubDub.ttf') format('truetype'),
-      url('WubbaLubbaDubDub.otf') format('opentype');
+    url('WubbaLubbaDubDub.ttf') format('truetype'),
+    url('WubbaLubbaDubDub.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }

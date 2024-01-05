@@ -1,6 +1,6 @@
 .navegador{
     background-image: linear-gradient(to right, hsl(210, 80%, 10%), hsl(180, 60%, 5%), hsl(310, 80%, 10%));    
-    padding: 0.5em;
+    padding: 1em;
     display: flex;
     flex-direction: row;
     justify-content: center;

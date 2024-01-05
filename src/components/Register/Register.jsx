@@ -50,7 +50,7 @@ const Register = () => {
       const password = userData.password;
   
       if (userData.email) {
-        const URL = 'https://r-m-back-production.up.railway.app/api/signin';
+        const URL = 'http://localhost:3001/api/signin';
         let endpoint = URL + `?email=${email}&password=${password}`;
   
         // Realizar la solicitud GET
@@ -188,7 +188,7 @@ const Register = () => {
           </div>
 
           <div className={style.genero}>
-            <label htmlFor="male">Male</label>
+            <label style={{fontSize: '25px'}} htmlFor="male">Male</label>
             <input
               className={style.male}
               type="radio"
@@ -200,7 +200,7 @@ const Register = () => {
               disabled={success}
             />
 
-            <label htmlFor="female">Female</label>
+            <label style={{fontSize: '25px'}} htmlFor="female">Female</label>
             <input
               className={style.female}
               type="radio"
@@ -212,7 +212,7 @@ const Register = () => {
               disabled={success}
             />
 
-            <label htmlFor="other">Other</label>
+            <label style={{fontSize: '25px'}} htmlFor="other">Other</label>
             <input
               className={style.other}
               type="radio"
@@ -227,7 +227,7 @@ const Register = () => {
 
           <div className={style.div2}>
             <div className={style.terms}>
-              <label htmlFor="terms">I accept the terms and conditions</label>
+              <label style={{fontSize: '17px'}} htmlFor="terms">I accept the terms and conditions</label>
               <input                         
                 className={style.female}
                 type="checkbox" 

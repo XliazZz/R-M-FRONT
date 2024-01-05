@@ -1,19 +1,20 @@
 .elCapo{
-  
   background-image: linear-gradient(to top, hsl(310, 60%, 10%), hsl(180, 40%, 5%), hsl(210, 60%, 10%));
 }
 
-.contenedorCharacters{
+.contenedorCharacters {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr)) 1fr; /* Agregamos una fila adicional */
-  column-gap: 50px;
   row-gap: 30px;
   padding: 50px;
   min-height: 100vh;
   min-width: 0;
   overflow: auto;
+  
+  place-items: center;
 }
+
 
 .contenedorboton {
   display: flex;
@@ -90,8 +91,11 @@
 	}
 }
 
-.botonTop{
-  padding-right: 20px;
+.botonTop {
+  position: fixed;
+  bottom: 60px;
+  right: 50px;
+  padding: 15px;
   padding-bottom: 45px;
 }
 

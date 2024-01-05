@@ -7,7 +7,7 @@ import style from "./Favorite.module.css"
 
 const Favorites = () => {
   const token = localStorage.getItem('token');
-  const URL = 'https://r-m-back-production.up.railway.app';
+  const URL = 'http://localhost:3001';
 
   const [aux, setAux] = useState(false);
   const [favs, setFavs] = useState([])

@@ -2,7 +2,7 @@
     background-image: linear-gradient(to top, hsl(310, 60%, 10%), hsl(180, 40%, 5%), hsl(210, 60%, 10%));
 
     width: 100%;
-    height: 44vw;
+    height: 47vw;
     padding-bottom: 5px;
 }
 
@@ -11,7 +11,7 @@
     width: 300px;
     position: absolute;
     right: 90px;
-    top: 125px;
+    top: 190px;
     border: 2px solid #00d8f5;
     animation: lights 1000ms infinite ease-in;
     
@@ -41,6 +41,7 @@
     position: absolute;
     right: 190px;
     font-size: 30px;
+    top: 110px;
 }
 
 .texto{

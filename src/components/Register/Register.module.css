@@ -34,7 +34,6 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
-  gap: 70px;
 }
 
 /* Label */
@@ -96,7 +95,6 @@
   font-family: "WubbaLubbaDubDub";
   font-size: 20px;
   position: relative;
-  bottom: -5px;
 }
 
 .genero label {
@@ -135,6 +133,9 @@
   font-family: 'WubbaLubbaDubDub';
   width: 120px;
   height: 30px;
+  font-size: large;
+  margin: 10px;
+  margin-top: 20px;
 }
 
 .botonForm:hover{
@@ -153,11 +154,11 @@
   position: absolute;
   width: 200px;
   height: 250px;
-  right: 950px;
+  left: -40px;
   top: 200px;
   transform: rotate(34deg);
   -webkit-transform: rotate(34deg);
-  -moz-transform: rotate(34deg);
+  -moz-transform: rotate(45deg);
 }
 
 
@@ -239,10 +240,10 @@
 .h4Register{
   color: white;
   font-weight: 900;
-  font-size: 13px;
+  font-size: 17px;
   margin: 0;
   padding: 0;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 .linkSign{

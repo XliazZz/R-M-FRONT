@@ -20,12 +20,11 @@ const LoginGoogle = () => {
     if (success) {
       setTimeout(() => {
         navigate('/loading');
-      }, 1000); // Ajusta el tiempo de espera en milisegundos (en este caso, 2 segundos)
+      }, 1000); 
     }
   }, [success, navigate]);
 
   const handleSuccess = async (credentialResponse) => {
-    console.log("credentialResponse", credentialResponse);
     if (credentialResponse.credential) {
       const token = credentialResponse.credential;
       const { payload } = decodedJwt(token);
@@ -33,7 +32,7 @@ const LoginGoogle = () => {
       const { email} = payload;
       
       try {
-        const URL = 'https://r-m-back-production.up.railway.app/api/signingoogle';
+        const URL = 'http://localhost:3001/api/signingoogle';
         let endpoint = URL;
         if (email) {
           endpoint += `?email=${email}`;

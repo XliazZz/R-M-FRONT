@@ -88,8 +88,8 @@ const EpisodeDetail = () => {
             </div>
         </div>
 
-            <div  className={style.botonTop}>
-                <ScrollTop ></ScrollTop>
+            <div id="buttomEpisodeDetail" className={style.botonTop}>
+                <ScrollTop id='buttomEpisodeDetail' ></ScrollTop>
             </div>
 
         </div>

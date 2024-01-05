@@ -1,15 +1,24 @@
 import style from "./Card.module.css";
-import { NavLink, useLocation } from "react-router-dom";
-import { postFavorite, removeFav, removeCard } from "../../redux/Actions/actions";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { postFavorite, removeFav, removeCard, getFavorite, clearFavoriteStatus } from "../../redux/Actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import Swal from 'sweetalert2';
 
 function Card({ id, name, status, species, gender, origin, image, location }) {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
+
+  const favs = useSelector((state) => state.myFavorites);
+
+  const errorDeleteFavorite = useSelector((state) => state.errorDeleteFavorite);
+  const successDeleteFavorite = useSelector((state) => state.successDeleteFavorite);
+  
+  const errorPostFavorite = useSelector((state) => state.errorPostFavorite);
+  const successPostFavorite = useSelector((state) => state.successPostFavorite);
 
   const { pathname } = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onClose = () => {
     dispatch(removeCard(id));
@@ -18,47 +27,86 @@ function Card({ id, name, status, species, gender, origin, image, location }) {
   const [isFav, setIsFav] = useState(false);
 
   const handleFavorite = () => {
-    if (isFav) {
+    if (token) {
+      if (isFav) {
         setIsFav(false);
         dispatch(removeFav(id));
     } else {
         setIsFav(true);
         dispatch(postFavorite({ id, name, status, species, gender, origin, image, location }));
     };
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You must be logged in to add a favorite',
+        confirmButtonText: 'Login',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/login');
+        }
+      });
+    }
   };
-
-  const [favs, setFavs] = useState([]);
-
-  const URL = 'https://r-m-back-production.up.railway.app';
   
   useEffect(() => {
-    const allCountriesFav = async () => {
-      const endpoint = `${URL}/fav`;
-      try {
-        const response = await axios.get(endpoint, {
-          headers: {
-            Authorization: `Bearer ${token}`, // Agrega el token como encabezado de autorización
-          },
-        });
-        const data = response.data;
-        setFavs(data);
-      } catch (error) {
-        throw new Error(`${error.message}`);
-      }
-    };
-    allCountriesFav();
-  }, []);
+    if (token) {
+      dispatch(getFavorite());
+    } else {
+      setIsFav(false);
+    }
+  }, [dispatch, token]);
+
 
   useEffect(() => {
-    if (Array.isArray(favs)) {
+    if (token && Array.isArray(favs)) {
       favs.forEach((fav) => {
         if (fav && fav.id === id) {
           setIsFav(true);
         }
       });
+    } else {
+      setIsFav(false);
     }
-  }, [favs]);
+  }, [favs, id, token]);
   
+  useEffect(() => {
+    if (errorPostFavorite) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: errorPostFavorite,
+      });
+      dispatch(clearFavoriteStatus());
+    } else if (successPostFavorite) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Your favorite has been added',
+        customClass: {
+          title: 'text-success',
+        },
+      });
+      dispatch(clearFavoriteStatus());
+    }
+
+    if (errorDeleteFavorite) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+      });
+      dispatch(clearFavoriteStatus());
+    } else if (successDeleteFavorite) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Deleted!',
+        text: 'Your favorite has been deleted',
+        color: 'red',
+      });
+      dispatch(clearFavoriteStatus());
+    }
+  }, [errorPostFavorite, successPostFavorite, errorDeleteFavorite, successDeleteFavorite, dispatch]);
 
   const [isHovering, setIsHovering] = useState(false);
 
@@ -82,7 +130,7 @@ function Card({ id, name, status, species, gender, origin, image, location }) {
 
   const calculateFontSize = (name) => {
     if (!name) {
-      return "20px"; // Otra fuente predeterminada si el nombre no está definido
+      return "20px";
     } else if (name.length < 10) {
       return "25px";
     } else if (name.length < 15) {
@@ -97,7 +145,6 @@ function Card({ id, name, status, species, gender, origin, image, location }) {
       return "11px";
     } 
   };
-  
       
   return (
     <div className={style.card} >

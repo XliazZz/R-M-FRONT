@@ -12,7 +12,7 @@ const EpisodeList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://r-m-back-production.up.railway.app/episodes');
+        const response = await axios.get('http://localhost:3001/episodes');
         const episodeData = response.data;
       
         const seasonsMap = new Map();
@@ -65,8 +65,8 @@ const EpisodeList = () => {
         ))}
       {selectedEpisode && <EpisodeDetail episode={selectedEpisode} />}
 
-      <div  className={style.botonTop}>
-        <ScrollTop ></ScrollTop>
+      <div id="buttomEpisode" className={style.botonTop}>
+        <ScrollTop id='buttomEpisode' ></ScrollTop>
       </div>
     </div>
   );

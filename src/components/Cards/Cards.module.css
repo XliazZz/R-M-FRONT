@@ -8,6 +8,7 @@
     padding: 50px;
     min-height: 100vh;
     min-width: 0;
+		place-items: center;
     overflow: auto;
 }
 
