@@ -1,6 +1,6 @@
 .conteedorFavorites{
 		background-image: linear-gradient(to bottom, hsl(210, 80%, 10%), hsl(180, 60%, 5%), hsl(310, 80%, 10%));
-		height:70vw;
+		height:100vw;
 }
 
 .contenedorFavs{
@@ -60,4 +60,13 @@ option{
 		box-shadow: 0px 0px 10px 2px #00d8f5;
 		border: 1px solid #00ff00;
 		}
+}
+
+.h1 {
+		font-family: "WubbaLubbaDubDub";
+		color: #00ff00;
+		font-size: 50px;
+		text-align: center;
+		margin-top: 0px;
+		margin-bottom: 20px;
 }

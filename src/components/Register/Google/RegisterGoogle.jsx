@@ -37,7 +37,7 @@ const RegisterGoogle = () => {
 
       if (email && family_name && given_name) {
         try {
-          const response = await axios.post("https://rickandmortyback.adaptable.app/api/signupgoogle", {
+          const response = await axios.post("https://r-m-back-production.up.railway.appapi/signupgoogle", {
             name,
             lastname,
             email,
@@ -45,7 +45,7 @@ const RegisterGoogle = () => {
           console.log("Data send success:", response.data);
 
           try {
-            const URL = 'https://rickandmortyback.adaptable.app/api/signingoogle';
+            const URL = 'https://r-m-back-production.up.railway.appapi/signingoogle';
             let endpoint = URL;
             if (email) {
               endpoint += `?email=${email}`;

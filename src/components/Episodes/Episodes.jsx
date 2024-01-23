@@ -12,7 +12,7 @@ const EpisodeList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://rickandmortyback.adaptable.app/episodes');
+        const response = await axios.get('https://r-m-back-production.up.railway.app/episodes');
         const episodeData = response.data;
       
         const seasonsMap = new Map();

@@ -7,7 +7,7 @@ import style from "./Favorite.module.css"
 
 const Favorites = () => {
   const token = localStorage.getItem('token');
-  const URL = 'https://rickandmortyback.adaptable.app/';
+  const URL = 'https://r-m-back-production.up.railway.app';
 
   const [aux, setAux] = useState(false);
   const [favs, setFavs] = useState([])
@@ -45,6 +45,8 @@ const Favorites = () => {
 
   return(
     <div className={style.conteedorFavorites} >
+
+      <h1 className={style.h1}>My favorites</h1>
 
       <select onChange={handleOrder}>
         <option value="A">Ascendente</option>
